@@ -10,6 +10,8 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Data.Providers;
 using Data.Models;
+using Fluent.Infrastructure.FluentModel;
+using WebApp;
 
 namespace Data
 {
