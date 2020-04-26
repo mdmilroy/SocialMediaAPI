@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data
 {
@@ -8,8 +10,12 @@ namespace Data
         public int Id { get; set; }
 
         public string Title { get; set; }
-        public User user { get; set; }
+        public User Author { get; set; }
 
-        public Post CommentedPost { get; set; }
+        [ForeignKey("CommentedPost")]
+        public int PostId { get; set; }
+        public virtual Post CommentedPost { get; set; }
+
+        public int Likes { get; set; }
     }
 }
