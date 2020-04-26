@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data
 {
@@ -9,5 +10,7 @@ namespace Data
         public string Title { get; set; }
         public string Text { get; set; }
         public User Author { get; set; }
+        public List<User> Likes { get; set; }
+        public Dictionary<User, Comment> Comments { get; set; }
     }
 }
