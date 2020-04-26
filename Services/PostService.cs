@@ -15,12 +15,12 @@ namespace Services
         //Or how would we bring it in to reference the User/Author in methods below?
 
         //ElevenNote had this in the NoteService (but had no specific user class or service)
-        //private readonly Guid _userId;
-        //public UserService(Guid userId)
-        //{
-        //    _userId = userId;
-        //}
-        
+        private readonly Guid _userId;
+        public PostService(Guid userId)
+        {
+            _userId = userId;
+        }
+
 
         public bool CreatePost(PostAPost model)
         {
@@ -46,7 +46,7 @@ namespace Services
                 var query =
                     ctx
                         .Posts
-                        .Where(e => e.OwnerId == _userId) //how do we tie this to the Author/User that created it?
+                        .Where(e => e.UserId == _userId) //how do we tie this to the Author/User that created it?
                         .Select(
                             e =>
                                 new GetPosts
@@ -67,7 +67,7 @@ namespace Services
                 var entity =
                     ctx
                         .Posts
-                        .Single(e => e.PostId == id && e.OwnerId == _userId);
+                        .Single(e => e.PostId == id && e.UserId == _userId);
                 return
                     new PostDetail
                     {
@@ -87,7 +87,7 @@ namespace Services
                 var postToUpdate =
                     ctx
                         .Posts
-                        .Single(e => e.PostId == model.PostId && e.OwnerId == _userId);
+                        .Single(e => e.PostId == model.PostId && e.UserId == _userId);
 
                 postToUpdate.Title = model.Title;
                 postToUpdate.Text = model.Text;
@@ -103,7 +103,7 @@ namespace Services
                 var postToDelete =
                     ctx
                         .Posts
-                        .Single(e => e.PostId == postId && e.OwnerId == _userId);
+                        .Single(e => e.PostId == postId && e.UserId == _userId);
 
                 ctx.Posts.Remove(postToDelete);
 
