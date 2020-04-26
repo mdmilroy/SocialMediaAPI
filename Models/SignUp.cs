@@ -1,19 +1,16 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Data
+namespace Models
 {
-    public class User
+    public class SignUp
     {
-        [Key]
         public Guid UserId { get; set; }
-
-        [Required]
         public string Name { get; set; }
-
-        [Required]
         public string Email { get; set; }
-
         public string Password { get; set; }
     }
 }

@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.Posts
+namespace Models
 {
-    public class GetPosts
+    public class PostReplyToComment
     {
-        public int PostId { get; set; }
-        public string Title { get; set; }
+        [Required]
+        public int CommentId { get; set; }
+        public User Author { get; set; }
+
     }
 }
