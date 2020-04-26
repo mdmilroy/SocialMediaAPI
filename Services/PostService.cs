@@ -26,11 +26,12 @@ namespace Services
         {
             var postToCreate = new Post()
             {
+                UserId = _userId,
                 Title = model.Title,
                 Text = model.Text,
                 Author = model.Author
-                //new empty list of Comments?
-                
+
+
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -46,7 +47,7 @@ namespace Services
                 var query =
                     ctx
                         .Posts
-                        .Where(e => e.UserId == _userId) //how do we tie this to the Author/User that created it?
+                        .Where(e => e.UserId == _userId)
                         .Select(
                             e =>
                                 new GetPosts
