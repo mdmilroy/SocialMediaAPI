@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebApp.Controllers
+namespace WebAPI.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Posts")]
