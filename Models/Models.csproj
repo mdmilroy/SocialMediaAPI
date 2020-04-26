@@ -84,11 +84,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditAPost.cs" />
     <Compile Include="GetCommentReplies.cs" />
     <Compile Include="GetPostComments.cs" />
     <Compile Include="GetPosts.cs" />
     <Compile Include="PostAPost.cs" />
     <Compile Include="PostCommentOnPost.cs" />
+    <Compile Include="PostDetail.cs" />
     <Compile Include="PostLikeToPost.cs" />
     <Compile Include="PostReplyToComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

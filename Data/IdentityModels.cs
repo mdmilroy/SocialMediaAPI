@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Data
 {
@@ -31,6 +32,7 @@ namespace Data
         {
             return new ApplicationDbContext();
         }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         //public DbSet<Like> Likes { get; set; }
