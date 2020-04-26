@@ -45,6 +45,9 @@
     <Compile Include="GetCommentReplies.cs" />
     <Compile Include="GetPostComments.cs" />
     <Compile Include="GetPosts.cs" />
+    <Compile Include="PostAPost.cs" />
+    <Compile Include="PostCommentOnPost.cs" />
+    <Compile Include="PostLikeToPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
