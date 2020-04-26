@@ -16,8 +16,10 @@ using Microsoft.Owin.Security.OAuth;
 using Data.Models;
 using Data.Providers;
 using Data.Results;
+using WebApp;
+using Data;
 
-namespace Data.Controllers
+namespace WebApp.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
