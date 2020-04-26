@@ -15,6 +15,9 @@ namespace Models
         [MaxLength(140, ErrorMessage = "There are too many characters in this field.")]
         public string Text { get; set; }
 
+        public int CommentId { get; set; }
+        public int PostId { get; set; }
+
         [Required]
         [Display(Name = "Created By")]
         public User Author { get; set; }
