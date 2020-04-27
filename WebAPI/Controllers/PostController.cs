@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             var post = postService.GetPostById(id);
             return Ok(post);
         }
-
+        [HttpPost]
         public IHttpActionResult Post(PostAPost post)
         {
             if (!ModelState.IsValid)
@@ -52,6 +52,7 @@ namespace WebAPI.Controllers
             return postService;
         }
 
+        [HttpPut]
         public IHttpActionResult Put(EditAPost postToEdit)
         {
             if (!ModelState.IsValid)
@@ -65,6 +66,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePostService();
