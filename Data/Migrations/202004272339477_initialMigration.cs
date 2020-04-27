@@ -3,7 +3,7 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initialMigration : DbMigration
     {
         public override void Up()
         {
@@ -15,16 +15,17 @@ namespace Data.Migrations
                         Text = c.String(),
                         PostId = c.Int(nullable: false),
                         Likes = c.Int(nullable: false),
+                        UserId = c.Guid(nullable: false),
+                        ReplyId = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
-                        Author_UserId = c.Guid(),
                         ReplyComment_CommentId = c.Int(),
                     })
                 .PrimaryKey(t => t.CommentId)
-                .ForeignKey("dbo.User", t => t.Author_UserId)
+                .ForeignKey("dbo.User", t => t.UserId, cascadeDelete: true)
                 .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
                 .ForeignKey("dbo.Comment", t => t.ReplyComment_CommentId)
                 .Index(t => t.PostId)
-                .Index(t => t.Author_UserId)
+                .Index(t => t.UserId)
                 .Index(t => t.ReplyComment_CommentId);
             
             CreateTable(
@@ -133,14 +134,14 @@ namespace Data.Migrations
             DropForeignKey("dbo.Comment", "ReplyComment_CommentId", "dbo.Comment");
             DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropForeignKey("dbo.Post", "UserId", "dbo.User");
-            DropForeignKey("dbo.Comment", "Author_UserId", "dbo.User");
+            DropForeignKey("dbo.Comment", "UserId", "dbo.User");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Post", new[] { "UserId" });
             DropIndex("dbo.Comment", new[] { "ReplyComment_CommentId" });
-            DropIndex("dbo.Comment", new[] { "Author_UserId" });
+            DropIndex("dbo.Comment", new[] { "UserId" });
             DropIndex("dbo.Comment", new[] { "PostId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");

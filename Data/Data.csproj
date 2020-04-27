@@ -87,13 +87,9 @@
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Like.cs" />
-    <Compile Include="Migrations\202004262352556_InitialCreate.cs" />
-    <Compile Include="Migrations\202004262352556_InitialCreate.Designer.cs">
-      <DependentUpon>202004262352556_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004270026452_CommentReplies.cs" />
-    <Compile Include="Migrations\202004270026452_CommentReplies.Designer.cs">
-      <DependentUpon>202004270026452_CommentReplies.cs</DependentUpon>
+    <Compile Include="Migrations\202004272339477_initialMigration.cs" />
+    <Compile Include="Migrations\202004272339477_initialMigration.Designer.cs">
+      <DependentUpon>202004272339477_initialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -106,11 +102,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004262352556_InitialCreate.resx">
-      <DependentUpon>202004262352556_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004270026452_CommentReplies.resx">
-      <DependentUpon>202004270026452_CommentReplies.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004272339477_initialMigration.resx">
+      <DependentUpon>202004272339477_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
