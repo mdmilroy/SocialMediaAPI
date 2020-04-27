@@ -15,7 +15,7 @@ namespace Models.Posts
         public string Text { get; set; }
 
         [Display(Name = "Created By")]
-        public User Author { get; set; }
+        public string Author { get; set; }
         public int Likes { get; set; }
     }
 }

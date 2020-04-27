@@ -18,9 +18,5 @@ namespace Models.Posts
 
         [MaxLength(8000)]
         public string Text { get; set; }
-
-        [Required]
-        [Display(Name = "Created By")]
-        public User Author { get; set; }
     }
 }

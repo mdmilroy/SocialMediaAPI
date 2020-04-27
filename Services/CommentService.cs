@@ -76,5 +76,20 @@ namespace Services
                 return query.ToArray();
             }
         }
+
+        public bool DeleteComment(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var commentToDelete =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == commentId && e.Author.UserId == _userId);
+
+                ctx.Comments.Remove(commentToDelete);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
