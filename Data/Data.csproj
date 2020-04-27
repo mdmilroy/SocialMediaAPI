@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202004270026452_CommentReplies.Designer.cs">
       <DependentUpon>202004270026452_CommentReplies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004271717249_addedCommentForeignKey.cs" />
+    <Compile Include="Migrations\202004271717249_addedCommentForeignKey.Designer.cs">
+      <DependentUpon>202004271717249_addedCommentForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004270026452_CommentReplies.resx">
       <DependentUpon>202004270026452_CommentReplies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271717249_addedCommentForeignKey.resx">
+      <DependentUpon>202004271717249_addedCommentForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

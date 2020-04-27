@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Post(PostReplyOnComment reply)
+        public IHttpActionResult Post(PostReplyToComment reply)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
