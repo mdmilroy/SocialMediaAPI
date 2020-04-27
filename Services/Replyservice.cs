@@ -6,10 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
+using Data;
+using Models;
+using Models.Posts;
 
-namespace server
+namespace Services
 {
-    class Replyservice
+    public class ReplyService
     {
         const string SERVER_IP = "127.0.0.1";
         static void Main(string[] args)
