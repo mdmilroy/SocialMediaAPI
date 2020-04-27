@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EditAPost.cs" />
+    <Compile Include="EditAReply.cs" />
     <Compile Include="GetCommentReplies.cs" />
     <Compile Include="GetPostComments.cs" />
     <Compile Include="GetPosts.cs" />

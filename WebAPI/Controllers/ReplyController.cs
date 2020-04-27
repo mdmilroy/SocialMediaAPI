@@ -14,16 +14,9 @@ namespace WebAPI.Controllers
     [RoutePrefix("api/replies")]
     public class ReplyController : ApiController
     {
-        [HttpGet]
-        public IHttpActionResult Get()
-        {
-            ReplyService replyService = CreateReplyService();
-            var replies = replyService.GetCommentReplies();
-            return Ok(replies);
-        }
 
         [HttpPost]
-        public IHttpActionResult Post(PostReplyOnComment reply)
+        public IHttpActionResult Post(PostReplyToComment reply)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -31,6 +24,20 @@ namespace WebAPI.Controllers
             var service = CreateReplyService();
 
             if (!service.ReplyOnComment(reply))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(EditAReply replyToEdit)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateReplyService();
+
+            if (!service.UpdateReply(replyToEdit))
                 return InternalServerError();
 
             return Ok();
