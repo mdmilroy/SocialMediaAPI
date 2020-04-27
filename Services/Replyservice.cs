@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ReplyService 
+    public class ReplyService
     {
         private readonly Guid _userId;
         private readonly int _commentId;
@@ -71,3 +71,4 @@ namespace Services
         }
     }
 }
+

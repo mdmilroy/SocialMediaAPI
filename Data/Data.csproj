@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202004272339477_initialMigration.Designer.cs">
       <DependentUpon>202004272339477_initialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004271717249_addedCommentForeignKey.cs" />
+    <Compile Include="Migrations\202004271717249_addedCommentForeignKey.Designer.cs">
+      <DependentUpon>202004271717249_addedCommentForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +108,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004272339477_initialMigration.resx">
       <DependentUpon>202004272339477_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271717249_addedCommentForeignKey.resx">
+      <DependentUpon>202004271717249_addedCommentForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
