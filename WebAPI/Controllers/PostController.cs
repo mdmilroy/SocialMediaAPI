@@ -31,6 +31,7 @@ namespace WebAPI.Controllers
             var post = postService.GetPostById(id);
             return Ok(post);
         }
+
         [HttpPost]
         public IHttpActionResult Post(PostAPost post)
         {

@@ -29,7 +29,6 @@ namespace Services
                 UserId = _userId,
                 Title = model.Title,
                 Text = model.Text,
-                Author = model.Author
 
 
             };
@@ -54,6 +53,7 @@ namespace Services
                                 {
                                     PostId = e.PostId,
                                     Title = e.Title,
+                                    Author = e.Author.Name
                                 }
                         );
 
@@ -75,7 +75,7 @@ namespace Services
                         PostId = entity.PostId,
                         Title = entity.Title,
                         Text = entity.Text,
-                        Author = entity.Author,
+                        Author = entity.Author.Name,
                         Likes = entity.Likes
                     };
             }
