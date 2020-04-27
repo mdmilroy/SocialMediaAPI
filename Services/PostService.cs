@@ -11,10 +11,6 @@ namespace Services
 {
     public class PostService
     {
-        //Do we need to create a user Id here? 
-        //Or how would we bring it in to reference the User/Author in methods below?
-
-        //ElevenNote had this in the NoteService (but had no specific user class or service)
         private readonly Guid _userId;
         public PostService(Guid userId)
         {
