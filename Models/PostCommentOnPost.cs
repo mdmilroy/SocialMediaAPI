@@ -20,6 +20,6 @@ namespace Models
 
         [Required]
         [Display(Name = "Created By")]
-        public string Author { get; set; }
+        public User Author { get; set; }
     }
 }
