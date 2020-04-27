@@ -48,8 +48,8 @@ namespace WebAPI.Controllers
         private PostService CreatePostService()
         {
             var authorId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new PostService(authorId);
-            return noteService;
+            var postService = new PostService(authorId);
+            return postService;
         }
 
         public IHttpActionResult Put(EditAPost postToEdit)
