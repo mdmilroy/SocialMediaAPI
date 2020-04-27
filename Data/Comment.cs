@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,12 +10,15 @@ namespace Data
         [Key]
         public int CommentId { get; set; }
         public string Text { get; set; }
-        public string Author { get; set; }
 
         [ForeignKey("CommentedPost")]
         public int PostId { get; set; }
         public virtual Post CommentedPost { get; set; }
 
         public int Likes { get; set; }
+
+        [ForeignKey("Author")]
+        public Guid UserId { get; set; }
+        public virtual User Author { get; set; }
     }
 }
