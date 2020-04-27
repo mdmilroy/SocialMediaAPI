@@ -32,6 +32,7 @@ namespace WebAPI.Controllers
             return Ok(post);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(PostAPost post)
         {
             if (!ModelState.IsValid)
@@ -48,10 +49,11 @@ namespace WebAPI.Controllers
         private PostService CreatePostService()
         {
             var authorId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new PostService(authorId);
-            return noteService;
+            var postService = new PostService(authorId);
+            return postService;
         }
 
+        [HttpPut]
         public IHttpActionResult Put(EditAPost postToEdit)
         {
             if (!ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreatePostService();
