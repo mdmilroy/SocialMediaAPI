@@ -50,6 +50,14 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            ReplyService replyService = CreateReplyService();
+            var replies = replyService.GetReplies(id);
+            return Ok(replies);
+        }
+
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
