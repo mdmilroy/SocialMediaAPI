@@ -17,7 +17,7 @@ namespace Models.Reply
         [MaxLength(140, ErrorMessage = "There are too many characters in this field.")]
         public string ReplyText { get; set; }
 
-        
+
 
     }
 }

@@ -25,7 +25,8 @@ namespace Services
             {
                 ReplyText = model.ReplyText,
                 Author = _userName,
-                CommentId = model.CommentId
+                CommentId = model.CommentId,
+                UserId = _userId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -56,11 +57,13 @@ namespace Services
                 var query =
                     ctx
                     .Replies
-                    .Where(e => e.ReplyId == id && e.UserId == _userId)
+                    .Where(e => e.CommentId == id && e.UserId == _userId)
                     .Select(
                         e =>
                         new GetReplies
                         {
+                            CommentId = e.RepliedComment.CommentId,
+                            ReplyId = e.ReplyId,
                             ReplyText = e.ReplyText,
                             Author = e.Author
                         });
