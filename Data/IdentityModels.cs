@@ -18,6 +18,7 @@ namespace Data
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            Name = userIdentity.NameClaimType;
             // Add custom user claims here
             return userIdentity;
         }

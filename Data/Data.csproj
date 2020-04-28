@@ -98,6 +98,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Like.cs" />
+    <Compile Include="Migrations\202004282236292_InitialCreate.cs" />
+    <Compile Include="Migrations\202004282236292_InitialCreate.Designer.cs">
+      <DependentUpon>202004282236292_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004282249056_initialMigration.cs" />
+    <Compile Include="Migrations\202004282249056_initialMigration.Designer.cs">
+      <DependentUpon>202004282249056_initialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Reply.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
@@ -108,6 +117,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004282236292_InitialCreate.resx">
+      <DependentUpon>202004282236292_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282249056_initialMigration.resx">
+      <DependentUpon>202004282249056_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
