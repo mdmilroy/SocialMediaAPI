@@ -45,7 +45,6 @@ namespace Services
                         .Single(e => e.ReplyId == model.ReplyId && e.UserId == _userId);
 
                 replyToUpdate.CommentText = model.ReplyText;
-
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -68,7 +67,7 @@ namespace Services
                 return query.ToArray();
             }
         }
-
+      
         public bool DeleteReply(int replyId)
         {
             using (var ctx = new ApplicationDbContext())
