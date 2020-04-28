@@ -48,7 +48,8 @@ namespace WebAPI.Controllers
         private PostService CreatePostService()
         {
             var authorId = Guid.Parse(User.Identity.GetUserId());
-            var postService = new PostService(authorId);
+            var authorName = User.Identity.Name;
+            var postService = new PostService(authorId, authorName);
             return postService;
         }
 

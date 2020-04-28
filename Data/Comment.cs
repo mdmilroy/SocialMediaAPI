@@ -11,7 +11,7 @@ namespace Data
         
         public string CommentText { get; set; }
         public string Author { get; set; }
-        public User User { get; set; }
+        public Guid UserId { get; set; }
 
 
         [ForeignKey("CommentedPost")]

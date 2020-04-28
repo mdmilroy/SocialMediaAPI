@@ -17,7 +17,8 @@ namespace WebAPI.Controllers
         private CommentService CreateCommentService()
         {
             var authorId = Guid.Parse(User.Identity.GetUserId());
-            var commentService = new CommentService(authorId);
+            var authorName = User.Identity.Name;
+            var commentService = new CommentService(authorId, authorName);
             return commentService;
         }
         

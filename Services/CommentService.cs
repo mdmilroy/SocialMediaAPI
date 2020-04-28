@@ -11,10 +11,11 @@ namespace Services
     public class CommentService
     {
         private readonly Guid _userId;
-
-        public CommentService(Guid userId)
+        private readonly string _userName;
+        public CommentService(Guid userId, string userName)
         {
             _userId = userId;
+            _userName = userName;
         }
 
         public bool CommentOnPost(PostComment model)
@@ -22,7 +23,9 @@ namespace Services
             var commentToPost = new Comment()
             {
                 PostId = model.PostId,
-                CommentText = model.CommentText
+                CommentText = model.CommentText,
+                Author = _userName,
+                UserId = _userId
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -39,7 +42,7 @@ namespace Services
                 var query =
                     ctx
                     .Comments
-                    .Where(e => e.PostId == id && e.User.UserId == _userId)
+                    .Where(e => e.PostId == id && e.UserId == _userId)
                     .Select(
                         e =>
                         new GetComments
@@ -59,7 +62,7 @@ namespace Services
                 var commentToUpdate =
                     ctx
                     .Comments
-                    .Single(e => e.CommentId == model.CommentId && e.User.UserId == _userId);
+                    .Single(e => e.CommentId == model.CommentId && e.UserId == _userId);
                 commentToUpdate.CommentText = model.CommentText;
 
                 return ctx.SaveChanges() == 1;
@@ -73,7 +76,7 @@ namespace Services
                 var commentToDelete =
                     ctx
                     .Comments
-                    .Single(e => e.CommentId == commentId && e.User.UserId == _userId);
+                    .Single(e => e.CommentId == commentId && e.UserId == _userId);
 
                 ctx.Comments.Remove(commentToDelete);
 

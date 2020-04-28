@@ -11,9 +11,11 @@ namespace Services
     public class PostService
     {
         private readonly Guid _userId;
-        public PostService(Guid userId)
+        private readonly string _userName;
+        public PostService(Guid userId, string userName)
         {
             _userId = userId;
+            _userName = userName;
         }
 
         public bool CreatePost(PostAPost model)
@@ -22,7 +24,8 @@ namespace Services
             {
                 UserId = _userId,
                 PostTitle = model.PostTitle,
-                PostText = model.PostText
+                PostText = model.PostText,
+                Author = _userName
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -45,7 +48,8 @@ namespace Services
                         new GetPosts
                         {
                             PostId = e.PostId,
-                            PostTitle = e.PostTitle
+                            PostTitle = e.PostTitle,
+                            Author = e.Author
                         });
                 return query.ToArray();
             }
@@ -65,7 +69,7 @@ namespace Services
                         PostId = entity.PostId,
                         PostTitle = entity.PostTitle,
                         PostText = entity.PostText,
-                        //Author = entity.Author.Name,
+                        Author = entity.Author,
                         Likes = entity.Likes
                     };
             }

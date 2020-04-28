@@ -5,6 +5,6 @@ namespace Data
 {
     public class Reply : Comment
     {        
-        public Comment ReplyComment { get; set; }
+        //public Comment ReplyComment { get; set; }
     }
 }
