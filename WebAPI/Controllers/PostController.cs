@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
 
         //Returns detailed view of Post 
         [HttpGet]
-        [Route("{postId}")]
+        //[Route("{postId}")]
         public IHttpActionResult Get(int id)
         {
             PostService postService = CreatePostService();

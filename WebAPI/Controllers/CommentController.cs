@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
         }
         
         [HttpGet]
-        [Route("{postId}")]
+        //[Route("{postId}")]
         public IHttpActionResult Get(int id)
         {
             CommentService commentService = CreateCommentService();

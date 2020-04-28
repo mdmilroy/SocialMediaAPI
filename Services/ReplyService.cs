@@ -23,7 +23,7 @@ namespace Services
         {
             var replyToPost = new Reply()
             {
-                CommentText = model.ReplyText,
+                ReplyText = model.ReplyText,
                 Author = _userName,
                 CommentId = model.CommentId
             };
@@ -44,7 +44,7 @@ namespace Services
                         .Replies
                         .Single(e => e.ReplyId == model.ReplyId && e.UserId == _userId);
 
-                replyToUpdate.CommentText = model.ReplyText;
+                replyToUpdate.ReplyText = model.ReplyText;
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -61,7 +61,7 @@ namespace Services
                         e =>
                         new GetReplies
                         {
-                            ReplyText = e.CommentText,
+                            ReplyText = e.ReplyText,
                             Author = e.Author
                         });
                 return query.ToArray();
