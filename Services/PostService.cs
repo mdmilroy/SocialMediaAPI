@@ -37,7 +37,9 @@ namespace Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
-                    ctx.Posts.Where(e => e.UserId == _userId)
+                    ctx
+                    .Posts
+                    .Where(e => e.UserId == _userId)
                     .Select(
                         e =>
                         new GetPosts
@@ -63,7 +65,7 @@ namespace Services
                         PostId = entity.PostId,
                         PostTitle = entity.PostTitle,
                         PostText = entity.PostText,
-                        Author = entity.Author.Name,
+                        //Author = entity.Author.Name,
                         Likes = entity.Likes
                     };
             }

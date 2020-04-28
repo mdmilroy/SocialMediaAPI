@@ -8,6 +8,8 @@ namespace Models.Comment
 {
     public class GetComments
     {
-        public int PostId { get; set; }
+        public string PostTitle { get; set; }
+        public string CommentText { get; set; }
+        public string Author { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Models.Comment
 {
-    class PostComment
+    public class PostComment
     {
         public int PostId { get; set; }
 
