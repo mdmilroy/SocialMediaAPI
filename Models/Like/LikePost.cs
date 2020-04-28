@@ -9,5 +9,6 @@ namespace Models.Like
     public class LikePost
     {
         public int LikedPostId { get; set; }
+        public string Liker { get; set; }
     }
 }
