@@ -3,7 +3,7 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class removedUnusedFK : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -16,14 +16,10 @@ namespace Data.Migrations
                         Author = c.String(),
                         UserId = c.Guid(nullable: false),
                         PostId = c.Int(nullable: false),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
-                        ReplyComment_CommentId = c.Int(),
                     })
                 .PrimaryKey(t => t.CommentId)
                 .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
-                .ForeignKey("dbo.Comment", t => t.ReplyComment_CommentId)
-                .Index(t => t.PostId)
-                .Index(t => t.ReplyComment_CommentId);
+                .Index(t => t.PostId);
             
             CreateTable(
                 "dbo.Post",
@@ -37,6 +33,20 @@ namespace Data.Migrations
                         UserId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.PostId);
+            
+            CreateTable(
+                "dbo.Reply",
+                c => new
+                    {
+                        ReplyId = c.Int(nullable: false, identity: true),
+                        ReplyText = c.String(),
+                        Author = c.String(),
+                        UserId = c.Guid(nullable: false),
+                        CommentId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ReplyId)
+                .ForeignKey("dbo.Comment", t => t.CommentId, cascadeDelete: true)
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -117,19 +127,20 @@ namespace Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Comment", "ReplyComment_CommentId", "dbo.Comment");
+            DropForeignKey("dbo.Reply", "CommentId", "dbo.Comment");
             DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Comment", new[] { "ReplyComment_CommentId" });
+            DropIndex("dbo.Reply", new[] { "CommentId" });
             DropIndex("dbo.Comment", new[] { "PostId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Reply");
             DropTable("dbo.Post");
             DropTable("dbo.Comment");
         }

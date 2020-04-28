@@ -98,9 +98,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Like.cs" />
-    <Compile Include="Migrations\202004281816598_removedUnusedFK.cs" />
-    <Compile Include="Migrations\202004281816598_removedUnusedFK.Designer.cs">
-      <DependentUpon>202004281816598_removedUnusedFK.cs</DependentUpon>
+    <Compile Include="Migrations\202004282236292_InitialCreate.cs" />
+    <Compile Include="Migrations\202004282236292_InitialCreate.Designer.cs">
+      <DependentUpon>202004282236292_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004282249056_initialMigration.cs" />
+    <Compile Include="Migrations\202004282249056_initialMigration.Designer.cs">
+      <DependentUpon>202004282249056_initialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004282319567_LikeController.cs" />
+    <Compile Include="Migrations\202004282319567_LikeController.Designer.cs">
+      <DependentUpon>202004282319567_LikeController.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Reply.cs" />
@@ -115,8 +123,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004281816598_removedUnusedFK.resx">
-      <DependentUpon>202004281816598_removedUnusedFK.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004282236292_InitialCreate.resx">
+      <DependentUpon>202004282236292_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282249056_initialMigration.resx">
+      <DependentUpon>202004282249056_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282319567_LikeController.resx">
+      <DependentUpon>202004282319567_LikeController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

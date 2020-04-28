@@ -47,6 +47,7 @@ namespace Services
                         e =>
                         new GetComments
                         {
+                            PostId = e.CommentedPost.PostId,
                             PostTitle = e.CommentedPost.PostTitle,
                             CommentText = e.CommentText,
                             Author = e.Author

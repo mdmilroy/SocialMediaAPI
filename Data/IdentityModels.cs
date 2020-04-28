@@ -18,6 +18,7 @@ namespace Data
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            Name = userIdentity.NameClaimType;
             // Add custom user claims here
             return userIdentity;
         }
@@ -38,6 +39,7 @@ namespace Data
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

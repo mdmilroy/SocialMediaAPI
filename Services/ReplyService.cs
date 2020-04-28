@@ -1,5 +1,5 @@
 ﻿using Data;
-using Models;
+using Models.Reply;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,34 +8,29 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ReplyService 
+    public class ReplyService
     {
         private readonly Guid _userId;
-        private readonly int _commentId;
+        private readonly string _userName;
 
-        public ReplyService(Guid userId)
+        public ReplyService(Guid userId, string userName)
         {
             _userId = userId;
+            _userName = userName;
         }
 
-        public ReplyService(int commentId)
+        public bool ReplyOnComment(PostReply model)
         {
-            _commentId = commentId;
-        }
-
-        public bool ReplyOnComment(PostReplyToComment model)
-        {
-            var replyToCreate = new Reply()
+            var replyToPost = new Reply()
             {
-                ReplyId = model.ReplyId,
-                Text = model.Text,
-                Author = model.Author,
+                ReplyText = model.ReplyText,
+                Author = _userName,
                 CommentId = model.CommentId
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Replies.Add(replyToCreate);
+                ctx.Replies.Add(replyToPost);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -47,14 +42,32 @@ namespace Services
                 var replyToUpdate =
                     ctx
                         .Replies
-                        .Single(e => e.ReplyId == model.PostId && e.UserId == _userId);
+                        .Single(e => e.ReplyId == model.ReplyId && e.UserId == _userId);
 
-                replyToUpdate.Text = model.Text;
-
+                replyToUpdate.ReplyText = model.ReplyText;
                 return ctx.SaveChanges() == 1;
             }
         }
 
+        public IEnumerable<GetReplies> GetReplies(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Replies
+                    .Where(e => e.ReplyId == id && e.UserId == _userId)
+                    .Select(
+                        e =>
+                        new GetReplies
+                        {
+                            ReplyText = e.ReplyText,
+                            Author = e.Author
+                        });
+                return query.ToArray();
+            }
+        }
+      
         public bool DeleteReply(int replyId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -62,9 +75,9 @@ namespace Services
                 var replyToDelete =
                     ctx
                         .Replies
-                        .Single(e => e.ReplyId == replyId && e.Author.UserId == _userId);
+                        .Single(e => e.ReplyId == replyId && e.UserId == _userId);
 
-                ctx.Comments.Remove(replyToDelete);
+                ctx.Replies.Remove(replyToDelete);
 
                 return ctx.SaveChanges() == 1;
             }
