@@ -61,6 +61,7 @@
     <Compile Include="Post\EditAPost.cs" />
     <Compile Include="Post\GetPosts.cs" />
     <Compile Include="Post\PostAPost.cs" />
+    <Compile Include="Post\PostDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reply\PostReply.cs" />
   </ItemGroup>

@@ -12,6 +12,7 @@ namespace Data
         public string PostTitle { get; set; }
         
         public string PostText { get; set; }
+        public int Likes { get; set; }
 
         [ForeignKey("Author")]
         public Guid UserId { get; set; }
