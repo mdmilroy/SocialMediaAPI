@@ -22,6 +22,14 @@ namespace WebAPI.Controllers
             return replyService;
         }
 
+        [HttpGet]
+        public IHttpActionResult GetCommentReplies(int id)
+        {
+            ReplyService replyService = CreateReplyService();
+            var replies = replyService.GetReplies(id);
+            return Ok(replies);
+        }
+
         [HttpPost]
         public IHttpActionResult Post(PostReply replyToPost)
         {
