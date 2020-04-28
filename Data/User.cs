@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class User
+    public class User : ApplicationUser
     {
         [Key]
         public Guid UserId { get; set; }

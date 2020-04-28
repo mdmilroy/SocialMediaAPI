@@ -110,6 +110,10 @@
     <Compile Include="Migrations\202004282319567_LikeController.Designer.cs">
       <DependentUpon>202004282319567_LikeController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004282343464_replyServiceUserID.cs" />
+    <Compile Include="Migrations\202004282343464_replyServiceUserID.Designer.cs">
+      <DependentUpon>202004282343464_replyServiceUserID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Reply.cs" />
     <Compile Include="Comment.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004282319567_LikeController.resx">
       <DependentUpon>202004282319567_LikeController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004282343464_replyServiceUserID.resx">
+      <DependentUpon>202004282343464_replyServiceUserID.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
