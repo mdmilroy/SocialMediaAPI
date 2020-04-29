@@ -12,5 +12,6 @@ namespace Models.Comment
         public string PostTitle { get; set; }
         public string CommentText { get; set; }
         public string Author { get; set; }
+        public int CommentId { get; set; }
     }
 }

@@ -10,5 +10,7 @@ namespace Models.Reply
     {
         public string ReplyText { get; set; }
         public string Author { get; set; }
+        public int CommentId { get; set; }
+        public int ReplyId { get; set; }
     }
 }

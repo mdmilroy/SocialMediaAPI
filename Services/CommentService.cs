@@ -49,6 +49,7 @@ namespace Services
                         {
                             PostId = e.CommentedPost.PostId,
                             PostTitle = e.CommentedPost.PostTitle,
+                            CommentId = e.CommentId,
                             CommentText = e.CommentText,
                             Author = e.Author
                         });
