@@ -93,7 +93,6 @@
     <Compile Include="PostAPost.cs" />
     <Compile Include="PostCommentOnPost.cs" />
     <Compile Include="PostDetail.cs" />
-    <Compile Include="PostLikeToPost.cs" />
     <Compile Include="PostReplyToComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
